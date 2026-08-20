@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
-const StudentSchema = new mongoose.Schema({
-    studentId: { type: String, required: true, unique: true },
-    name: { type: String, required: true },
-    email: { type: String, required: true }
-});
+// Thêm age vào Schema để khớp với dữ liệu bạn đã insert trên Atlas
+const studentSchema = new mongoose.Schema({
+    studentId: String,
+    name: String,
+    email: String,
+    age: Number
+}, { strict: false }); // strict: false giúp Mongoose đọc mọi trường dữ liệu có sẵn trong DB
 
-module.exports = mongoose.model('Student', StudentSchema);
+module.exports = mongoose.model('Student', studentSchema, 'students');
