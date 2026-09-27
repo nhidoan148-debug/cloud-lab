@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    image: nhidoan112/mern-backend:1.0
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb+srv://admin:nhi112@cluster0.7r30vnr.mongodb.net/cloud_lab?appName=Cluster0
+      - PORT=5000
+
+  frontend:
+    image: nhidoan112/mern-frontend:2.0
+    ports:
+      - "3000:3000"
